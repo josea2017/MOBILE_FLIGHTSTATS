@@ -24,6 +24,6 @@ export class Tab2PageModule {
 
   }
   schedulePage(){
-    this.router.navigateByUrl(['/schedule']);
+    //this.router.navigateByUrl(['/schedule']);
   }
 }
