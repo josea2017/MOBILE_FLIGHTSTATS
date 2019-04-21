@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ScheduleService } from './../services/schedule.service';
 import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
+//import { resolveAny } from 'dns';
 
 @Component({
   selector: 'app-schedule',
@@ -14,11 +16,9 @@ export class SchedulePage implements OnInit {
   year = 0;
   month = 0;
   day = 0;
-  flights;
-  
-  results;
+  usuarios;
 
-  constructor(public scheduleService: ScheduleService) { }
+  constructor(public scheduleService: ScheduleService, public http: HttpClient) { }
 
   ngOnInit() {
   }
@@ -38,18 +38,22 @@ export class SchedulePage implements OnInit {
   }
   */
  searchSchedules(){
-  console.log('My carrier:', this.carrier);
-  console.log('My flightnumber:', this.flightnumber);
-  console.log('My year:', this.year);
-  console.log('My month:', this.month);
-  console.log('My day:', this.day);
-  this.results = this.scheduleService.searchSchedules(this.carrier, this.flightnumber, this.year, this.month, this.day);
+  //console.log('My carrier:', this.carrier);
+  //console.log('My flightnumber:', this.flightnumber);
+  //console.log('My year:', this.year);
+  //console.log('My month:', this.month);
+  //console.log('My day:', this.day);
+  //this.results = this.scheduleService.searchSchedules(this.carrier, this.flightnumber, this.year, this.month, this.day);
+  this.scheduleService.searchSchedules(this.carrier, this.flightnumber, this.year, this.month, this.day)
+  .subscribe(
+    (data)=> {this.usuarios = (data);},
+    (error)=> {console.log(error);}
+  )
+  console.log(this.usuarios);
 
-  //this.results.subscribe(res => {
-     //in here
-  //});
 
-}
+
+  }
 
 
 

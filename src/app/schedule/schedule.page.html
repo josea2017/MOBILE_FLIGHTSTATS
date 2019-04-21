@@ -30,9 +30,7 @@
 <ion-button (click)='searchSchedules($event)' class="btnSend" type="submit" block>Send</ion-button>
 
 <ion-list>
-    <ion-item *ngFor="let flight of (results | async)">
-        {{flight}}
-    </ion-item>
+        <div [innerHTML]="usuarios.scheduledFlights | json"></div>
 </ion-list>
 
 </ion-content>
