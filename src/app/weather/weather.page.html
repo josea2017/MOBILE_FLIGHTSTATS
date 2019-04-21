@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Weather</ion-title>
+    <ion-button href="/tabs/tab2" end> Back </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-item>
+        <ion-label class="labelSize" position="floating">Airport</ion-label>
+        <ion-input [(ngModel)]="airport" name="airport" class="inputSize" placeholder="Enter Airport"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label class="labelSize" position="floating">Code Type</ion-label>
+        <ion-input [(ngModel)]="codeType" name="codeType" class="inputSize" placeholder="Enter Code Type (IATA)"></ion-input>
+    </ion-item>
+
+    <ion-button (click)='searchWeather($event)' class="btnSend" type="submit" block>Send</ion-button>
+
+    <ng-template [ngIf]="weather">
+    <ion-list>
+        <ion-item>Airport: <div [innerHTML]="weather.appendix.airports[0].name | json"></div></ion-item>
+        <ion-item>Weather Station Icao: <div [innerHTML]="weather.metar.weatherStationIcao | json"></div></ion-item>
+        <ion-item>Temperatura Celsius: <div [innerHTML]="weather.metar.temperatureCelsius | json"></div></ion-item>
+        <ion-item>Sky conditions: <div [innerHTML]="weather.metar.conditions.skyConditions[0].coverage | json"></div></ion-item>
+        <ion-item>Report: <div [innerHTML]="weather.metar.report | json"></div></ion-item>
+    </ion-list>
+    </ng-template>
+
+</ion-content>
+
+

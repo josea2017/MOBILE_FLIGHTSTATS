@@ -32,4 +32,13 @@ export class ScheduleService {
     return this.http.get(url);
    }
 
+   searchWeather(airport, codeType){
+    //https://api.flightstats.com/flex/weather/rest/v1/json/metar/JFK?appId=1f701fb0&appKey=224667587a4c65c3798d047b89209283&codeType=IATA
+    //var response = this.http.get(url);
+    //return response;
+    var urlW = 'https://api.flightstats.com/flex/weather/rest/v1/json/metar/';
+    var urlW2 = `${urlW}${airport}?appId=${this.appId}&appKey=${this.appKey}&codeType=${codeType}`;
+    return this.http.get(urlW2);
+   }
+
 }

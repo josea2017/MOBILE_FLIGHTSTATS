@@ -29,8 +29,15 @@
 </ion-item>
 <ion-button (click)='searchSchedules($event)' class="btnSend" type="submit" block>Send</ion-button>
 
-<ion-list>
-        <div [innerHTML]="usuarios.scheduledFlights | json"></div>
-</ion-list>
+<ng-template [ngIf]="usuarios">
+    <ion-list>
+    <ion-item>Departure Aiport: <div [innerHTML]="usuarios.scheduledFlights[0].departureAirportFsCode | json"></div></ion-item>
+    <ion-item>Arrival Aiport: <div [innerHTML]="usuarios.scheduledFlights[0].arrivalAirportFsCode | json"></div></ion-item>
+    <ion-item>Stops: <div [innerHTML]="usuarios.scheduledFlights[0].stops | json"></div></ion-item>
+    <ion-item>Arrival Terminal: <div [innerHTML]="usuarios.scheduledFlights[0].arrivalTerminal | json"></div></ion-item>
+    <ion-item>Departure Time: <div [innerHTML]="usuarios.scheduledFlights[0].departureTime | json"></div></ion-item>
+    <ion-item>Arrival Time: <div [innerHTML]="usuarios.scheduledFlights[0].arrivalTime | json"></div></ion-item>
+    </ion-list>
+</ng-template>
 
 </ion-content>
