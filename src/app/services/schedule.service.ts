@@ -41,4 +41,11 @@ export class ScheduleService {
     return this.http.get(urlW2);
    }
 
+   searchRating(carrier, flightNumber){
+    //https://api.flightstats.com/flex/ratings/rest/v1/json/flight/AA/25?appId=1f701fb0&appKey=224667587a4c65c3798d047b89209283
+    var urlW = 'https://api.flightstats.com/flex/ratings/rest/v1/json/flight/';
+    var urlW2 = `${urlW}${carrier}/${flightNumber}?appId=${this.appId}&appKey=${this.appKey}`;
+    return this.http.get(urlW2);
+   }
+
 }

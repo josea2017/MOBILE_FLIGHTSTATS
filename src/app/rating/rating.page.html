@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Rating</ion-title>
+    <ion-button href="/tabs/tab2" end> Back </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-item>
+        <ion-label class="labelSize" position="floating">Carrier</ion-label>
+        <ion-input [(ngModel)]="carrier" name="carrier" class="inputSize" placeholder="Enter Carrier (AA)"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label class="labelSize" position="floating">Flight Number</ion-label>
+        <ion-input [(ngModel)]="flightNumber" name="flightNumber" class="inputSize" placeholder="Enter Flight Number (25)"></ion-input>
+    </ion-item>
+
+    <ion-button (click)='searchRating($event)' class="btnSend" type="submit" block>Send</ion-button>
+
+    <ng-template [ngIf]="rating">
+    <ion-list>
+        <ion-item>Airline: <div [innerHTML]="rating.ratings[0].airlineFsCode | json"></div></ion-item>
+        <ion-item>Departure: <div [innerHTML]="rating.ratings[0].departureAirportFsCode | json"></div></ion-item>
+        <ion-item>Arrival: <div [innerHTML]="rating.ratings[0].arrivalAirportFsCode | json"></div></ion-item>
+        <ion-item>Delay stars: <div [innerHTML]="rating.ratings[0].allDelayStars | json"></div></ion-item>
+        <ion-item>On time stars: <div [innerHTML]="rating.ratings[0].allOntimeStars | json"></div></ion-item>
+        <ion-item>All stars: <div [innerHTML]="rating.ratings[0].allStars | json"></div></ion-item>
+      </ion-list>
+    </ng-template>
+
+</ion-content>
