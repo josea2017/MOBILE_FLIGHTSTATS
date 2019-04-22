@@ -1,0 +1,19 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>Google Maps</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+	<div id="map_canvas" style="=height: 100%;"></div>
+
+	<ng-template [ngIf]="position">
+		<ion-list>
+			<ion-item>Longitud: <div [innerHTML]="position.coords.latitude | json"></div></ion-item>
+			<ion-item>Latitud: <div [innerHTML]="position.coords.longitude | json"></div></ion-item> 
+		</ion-list>
+
+	</ng-template>
+</ion-content>
+
