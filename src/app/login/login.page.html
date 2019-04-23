@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card class="welcome-card">
+        <div class="logo_login"><ion-img src="/assets/shapes.svg"></ion-img></div>
+        <ion-card-header>
+          <ion-card-subtitle>Easy</ion-card-subtitle>
+          <ion-card-title>Welcome to Flightstats App</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p> All in one</p>
+        </ion-card-content>
+    </ion-card>
+
+
+
+  <div class="loginDiv">
+    <ion-item>
+        <ion-label class="labelSize" position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="email" name="email" class="inputSize" placeholder="Enter email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label class="labelSize" position="floating">Password</ion-label>
+        <ion-input [(ngModel)]="password" type="password" name="password" class="inputSize" placeholder="Enter password"></ion-input>
+    </ion-item>
+    <ion-button (click)="login()" class="btnSend" type="submit" block>Login</ion-button>
+  </div>
+  <ng-template [ngIf]="!client">
+      
+  </ng-template>
+</ion-content>

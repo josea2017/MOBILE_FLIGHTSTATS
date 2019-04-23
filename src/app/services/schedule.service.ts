@@ -48,4 +48,12 @@ export class ScheduleService {
     return this.http.get(urlW2);
    }
 
+   login(email, password){
+    //http://localhost:8000/api/searchClient
+    var urlW = 'http://localhost:8000/api/searchClient';
+    var urlW2 = `${urlW}?email=${email}&password=${password}`;
+    return this.http.get(urlW2);
+    
+   }
+
 }
